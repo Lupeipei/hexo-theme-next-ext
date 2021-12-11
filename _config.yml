@@ -40,7 +40,7 @@ menu:
   home: /
   archives: /archives
   categories: /categories
-  series: /categories/Series
+  # series: /categories/Series
   about: /about
   # tags: /tags
   #sitemap: /sitemap.xml
