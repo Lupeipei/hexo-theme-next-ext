@@ -46,9 +46,15 @@
                     <i class="fa fa-thumb-tack"></i>
                   </span>
                 {% endif %}
-                <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url">
-                  {{ post.title | default(__('post.untitled'))}}
-                </a>
+                {% if post.type == 'book' %}
+                  <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url" target="_blank">
+                    {{ post.title | default(__('post.untitled'))}}
+                  </a>
+                {% else %}
+                  <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url">
+                    {{ post.title | default(__('post.untitled'))}}
+                  </a>
+              {% endif %}
               {% else %}
                 {{ post.title }}
               {% endif %}
