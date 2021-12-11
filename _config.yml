@@ -39,8 +39,8 @@ seo: false
 menu:
   home: /
   archives: /archives
-  categories: /categories
-  # series: /categories/Series
+  categories: /tags
+  series: /categories
   about: /about
   # tags: /tags
   #sitemap: /sitemap.xml

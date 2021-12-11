@@ -15,19 +15,9 @@
 
 {% block content %}
 
-  <div id="posts" class="posts-expand">
-  {% include '_partials/page-header.swig' %}
-    {# tagcloud page support #}
-    {% if page.type === "tags" %}
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            {{ _p('counter.tag_cloud', site.tags.length) }}
-        </div>
-        <div class="tag-cloud-tags">
-          {{ tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#ccc', end_color: '#111'}) }}
-        </div>
-      </div>
-    {% elif page.type === 'categories' %}
+  {% if page.type === "tags" %}
+    <div id="posts" class="posts-expand">
+    {% include '_partials/page-header.swig' %}
       <div class="category-all-page">
         <div class="category-all-title">
             {{ _p('counter.categories', site.categories.length) }}
@@ -36,10 +26,35 @@
           {{ list_categories() }}
         </div>
       </div>
-    {% else %}
-      {{ page.content }}
-    {% endif %}
-  </div>
+    </div>
+  {% elif page.type === 'categories' %}
+    <div id="posts" class="posts-expand">
+    {% include '_partials/page-header.swig' %}
+      <div class="category-all-page">
+        <div class="category-all">
+          <ul class="category-list">
+          {% for category in site.categories %}
+            {% set posts = category.posts.sort('date') %}
+            {% set bookPost = posts.find({type: 'book'}) %}
+            {% set hasBookPost = bookPost.length > 0 %}
+            {% if hasBookPost %}
+              <li class="category-list-item" style="text-align: center; font-size: 16px;">
+               <a href="/{{ category.path }}" class="category-list-link">{{ category.name }}</a>
+               <span class="category-list-count">{{ category.length }}</span>
+              </li>
+            {% endif %}
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <div id="posts" class="posts-expand">
+    {% include '_partials/page-header.swig' %}
+    {{ page.content }}
+    </div>
+  {% endif %}
+
 
 {% endblock %}
 
