@@ -50,22 +50,41 @@
 }
 
 .book-toc-content {
-  ol {
+  ul {
     list-style-type: none;
     padding-right: 10px;
+    margin: 0;
+    li {
+      line-height: 30px;
+      cursor: pointer;
+      white-space: nowrap;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 0.2em;
+      .text {
+        display: inline-block;
+        line-height: 30px;
+        word-break: keep-all;
+        white-space: nowrap;
+        color: #666;
+        vertical-align: middle;
+        text-align: center;
+        position: relative;
+        border-bottom: none;
+      }
+    }
   }
 
-  .toc-link {
-    display: inline-block;
-    line-height: 30px;
-    word-break: keep-all;
-    white-space: nowrap;
-    color: #666;
-    vertical-align: middle;
-    position: relative;
-
-    .toc-number {
-      display: none;
+  .wholerow {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    user-select: none;
+    height: 30px;
+  }
+  .active {
+    .wholerow {
+      background: #e5e5e5;
     }
   }
 }

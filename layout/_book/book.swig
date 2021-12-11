@@ -1,5 +1,6 @@
 {% extends '../_layout_book.swig' %}
-{% import '../_macro/post.swig' as post_template %}
+{% import 'post.swig' as post_template %}
+
 {% block content %}
 <div class="content-book">
   <div id="posts" class="posts-expand">

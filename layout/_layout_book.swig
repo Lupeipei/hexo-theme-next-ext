@@ -24,13 +24,6 @@
     <main id="main" class="main">
       <div class="main-inner" style="width: 100%;">
         {% include '_book/sidebar.swig' %}
-        <!-- <div class="sidebar-book"> -->
-        <!--   <div class="sidebar-book-header"> -->
-        <!--     <a href="{{ post.permalink }}" title="{{ post.title }}" class="title">{{ post.title }}</a> -->
-        <!--   </div> -->
-        <!--   <div class="sidebar-book-body"> -->
-        <!--   </div> -->
-        <!-- </div> -->
         <div class="content-wrap" style="margin-left: 280px; padding: 30px;">
           <div id="content" class="content">
             {% block content %}{% endblock %}

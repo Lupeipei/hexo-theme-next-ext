@@ -1,18 +1,31 @@
 <div class="sidebar-book">
-  <div class="sidebar-book-header">
-    <a href="{{ page.permalink }}" title="{{ page.title }}" class="title">{{ page.title }}</a>
-  </div>
+  {% for category in page.categories %}
+    <div class="sidebar-book-header">
+      <div class="title">{{ category.name }}</div>
+    </div>
+  {% set posts = category.posts.sort('ranked') %}
+
   <div class="sidebar-book-body">
     <div class="book-catalog-body">
-      {% set display_toc = is_post and theme.toc.enable %}
-      {% if display_toc and toc(page.content).length > 1 %}
-        {% if page.toc_number === undefined %}
-          {% set toc = toc(page.content, { list_number: theme.toc.number }) %}
-        {% else %}
-          {% set toc = toc(page.content, { list_number: page.toc_number }) %}
-        {% endif %}
-        <div class="book-toc-content">{{ toc }}</div>
-      {% endif %}
+      <div class="book-toc-content">
+        <ul>
+          {% for post in posts %}
+            {% set active = post.title == page.title %}
+            {% if active %}
+              <li class="active">
+                <div class="wholerow"></div>
+                <a href="{{ url_for(post.path) }}" class="text">{{ post.title }}</a>
+              </li>
+            {% else %}
+              <li>
+                <div class="wholerow"></div>
+                <a href="{{ url_for(post.path) }}" class="text">{{ post.title }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
     </div>
   </div>
+  {% endfor %}
 </div>
