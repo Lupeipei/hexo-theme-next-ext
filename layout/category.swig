@@ -11,7 +11,14 @@
       <h2 >{{ page.category }}</h2>
     </div>
 
-    {% for post in page.posts %}
+    {% set posts = page.posts %}
+    {% set bookPost = posts.find({type: 'book'}) %}
+    {% set hasBookPost = bookPost.length > 0 %}
+    {% if hasBookPost %}
+      {% set posts = posts.sort('ranked') %}
+    {% endif %}
+
+    {% for post in posts %}
       {{ post_template.render(post) }}
     {% endfor %}
   </section>
