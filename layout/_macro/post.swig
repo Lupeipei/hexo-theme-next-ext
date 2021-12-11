@@ -262,9 +262,15 @@
           {{ post.excerpt }}
           <!--noindex-->
           <div class="post-button mt-0">
+          {% if post.type == 'book' %}
+            <a class="btn custom-post-btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#{{ __('post.more') }}{% endif %}" rel="contents" target="_blank">
+              {{ __('post.read_more') }} &raquo;
+            </a>
+          {% else %}
             <a class="btn custom-post-btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#{{ __('post.more') }}{% endif %}" rel="contents">
               {{ __('post.read_more') }} &raquo;
             </a>
+          {% endif %}
           </div>
           <!--/noindex-->
         {% elif theme.auto_excerpt.enable %}

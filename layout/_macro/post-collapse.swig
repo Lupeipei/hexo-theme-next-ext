@@ -9,6 +9,14 @@
             {{ post.title or post.link }}
             <i class="fa fa-external-link"></i>
           </a>
+        {% elif post.type == 'book' %}
+            <a class="post-title-link" href="{{ url_for(post.path) }}" target="_blank" itemprop="url">
+              {% if post.type === 'picture' %}
+                {{ post.content }}
+              {% else %}
+                <span itemprop="name">{{ post.title | default(__('post.untitled')) }}</span>
+              {% endif %}
+            </a>
         {% else %}
             <a class="post-title-link" href="{{ url_for(post.path) }}" itemprop="url">
               {% if post.type === 'picture' %}

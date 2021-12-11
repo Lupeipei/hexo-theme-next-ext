@@ -1,0 +1,69 @@
+.sidebar-book {
+  position: fixed;
+  left: 0px;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  background: #fafafa;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.sidebar-book-header {
+  position: relative;
+  flex: none;
+
+  .title {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    display: block;
+    overflow: hidden;
+    color: $grey-dark;
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+.sidebar-book-body {
+  position: relative;
+  flex: auto;
+  overflow: hidden;
+
+  >div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .book-catalog-body {
+    padding: 12px 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.book-toc-content {
+  ol {
+    list-style-type: none;
+    padding-right: 10px;
+  }
+
+  .toc-link {
+    display: inline-block;
+    line-height: 30px;
+    word-break: keep-all;
+    white-space: nowrap;
+    color: #666;
+    vertical-align: middle;
+    position: relative;
+
+    .toc-number {
+      display: none;
+    }
+  }
+}
