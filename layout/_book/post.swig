@@ -137,12 +137,6 @@
 
     <div>
       {% if not is_index %}
-        {% include '../_macro/reward.swig' %}
-      {% endif %}
-    </div>
-
-    <div>
-      {% if not is_index %}
         {% include '../_macro/post-copyright.swig' with { post: post } %}
       {% endif %}
     </div>
