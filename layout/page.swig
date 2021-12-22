@@ -34,8 +34,8 @@
         <div class="category-all">
           <ul class="category-list">
           {% for category in site.categories %}
-            {% set posts = category.posts.sort('date') %}
-            {% set bookPost = posts.find({type: 'book'}) %}
+            {% set posts = category.posts.sort('ranked') %}
+            {% set bookPost = posts.find({type: 'book', series: true }) %}
             {% set hasBookPost = bookPost.length > 0 %}
             {% if hasBookPost %}
               <li class="category-list-item" style="text-align: center; font-size: 16px;">
