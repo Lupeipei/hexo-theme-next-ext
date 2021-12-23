@@ -72,13 +72,5 @@
   {% include '_third-party/seo/baidu-push.swig' %}
   {% include '_third-party/mathjax.swig' %}
   {% include '_third-party/exturl.swig' %}
-  <link rel="stylesheet" type="text/css" href="/js/google-code-prettify/tomorrow-night-bright.min.css">
-  <script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script>
-  <script type="text/javascript">
-  $(window).load(function(){
-     $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
-     prettyPrint();
-   })
-  </script>
 </body>
 </html>

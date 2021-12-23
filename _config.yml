@@ -272,8 +272,8 @@ custom_logo:
 # Code Highlight theme
 # Available value:
 #    normal | night | night eighties | night blue | night bright
-# https://gLearn Vimscript the Hard Wayithub.com/chriskempson/tomorrow-theme
-highlight_theme: night
+# https://github.com/chriskempson/tomorrow-theme
+highlight_theme: normal
 
 # Reward
 # reward_comment: Donate comment here
