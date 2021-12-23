@@ -41,7 +41,7 @@ menu:
   archives: /archives
   categories: /tags
   series: /categories
-  about: /about
+  # about: /about
   # tags: /tags
   #sitemap: /sitemap.xml
   #commonweal: /404.html
