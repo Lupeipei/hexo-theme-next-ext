@@ -11,16 +11,23 @@
       <h2 >{{ page.category }}</h2>
     </div>
 
-    {% set posts = page.posts %}
-    {% set bookPost = posts.find({type: 'book'}) %}
+    {% set current = page.current %}
+    {% set pre = current - 1 %}
+    {% set perPage = config.per_page %}
+    {% set category = site.categories.findOne({ "name": page.category }) %}
+    {% set posts = category.posts.sort('ranked') %}
+    {% set bookPost = posts.find({ type: 'book' }) %}
     {% set hasBookPost = bookPost.length > 0 %}
     {% if hasBookPost %}
-      {% set posts = posts.sort('ranked') %}
+      {% set posts = posts.slice(perPage * pre, perPage * current) %}
+    {% else %}
+      {% set posts = page.posts %}
     {% endif %}
 
     {% for post in posts %}
       {{ post_template.render(post) }}
     {% endfor %}
+
   </section>
 
   {% include '_partials/pagination.swig' %}
@@ -30,3 +37,4 @@
 {% block sidebar %}
   {{ sidebar_template.render(false) }}
 {% endblock %}
+
